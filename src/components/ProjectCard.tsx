@@ -1,4 +1,10 @@
-function ProjectCard({ title, description, links }) {
+interface ProjectCardProps {
+  title: string;
+  description: string;
+  links: { name: string; url: string }[];
+}
+
+function ProjectCard({ title, description, links }: ProjectCardProps) {
   return (
     <div className="project-card">
       <h3>{title}</h3>
@@ -6,7 +12,9 @@ function ProjectCard({ title, description, links }) {
       <ul>
         {links.map((link, index) => (
           <li key={index}>
-            <a href={link.url} target="_blank" rel="noopener noreferrer">{link.name}</a>
+            <a href={link.url} target="_blank" rel="noopener noreferrer">
+              {link.name}
+            </a>
           </li>
         ))}
       </ul>
